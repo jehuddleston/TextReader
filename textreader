@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+from load import *
+from generate import *
+
+if __name__ == '__main__':
+    cmd = sys.argv[1]
+    switch = {}
+    switch["load"] = load
+    switch["generate"] = generate
+    resp = switch.get(cmd, lambda: "ERROR: Command not recognized")
+    print(resp())
